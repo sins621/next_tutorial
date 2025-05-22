@@ -34,20 +34,6 @@ export default function RootLayout({
           {children}
         </body>
       </html>
-      {/* <html lang="en">
-        <body className={`${geist.variable} ${geist.variable} antialiased`}>
-          <header className="flex h-16 items-center justify-end gap-4 p-4">
-            <SignedOut>
-              <SignInButton />
-              <SignUpButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header>
-          {children}
-        </body>
-      </html> */}
     </ClerkProvider>
   );
 }
