@@ -8,6 +8,7 @@ import { TopNav } from "./_components/topnav";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Next.js Tutorial",
@@ -22,7 +23,11 @@ const geist = Geist({
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  modal,
+}: {
+  children: ReactNode;
+  modal: ReactNode;
+}) {
   return (
     <ClerkProvider>
       <html lang="en" className={`${geist.variable}`}>
@@ -30,6 +35,8 @@ export default function RootLayout({
         <body className="flex flex-col gap-4">
           <TopNav />
           {children}
+          {modal}
+          <div id="modal-root" />
         </body>
       </html>
     </ClerkProvider>
