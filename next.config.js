@@ -1,11 +1,7 @@
-/**
- * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
- * for Docker builds.
- */
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {
+const coreConfig = {
   images: {
     remotePatterns: [{ hostname: "ra7874ss0o.ufs.sh" }],
   },
@@ -16,5 +12,17 @@ const config = {
     ignoreDuringBuilds: true,
   },
 };
+
+import { withSentryConfig } from "@sentry/nextjs";
+
+const config = withSentryConfig(coreConfig, {
+  org: "sins-br",
+  project: "nextjs_tutorial",
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  disableLogger: true,
+  tunnelRoute: "/monotoring",
+  automaticVercelMonitors: true,
+});
 
 export default config;
