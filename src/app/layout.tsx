@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className={`${geist.variable}`}>
-        <body className="flex flex-col min-h-screen overflow-hidden">
+        <body className="dark flex min-h-screen flex-col overflow-hidden">
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <div className="grid h-full grid-rows-[auto,1fr]">
             <TopNav />
