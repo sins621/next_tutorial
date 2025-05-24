@@ -1,29 +1,87 @@
-# Create T3 App
+# Next.js Tutorial Project
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A modern web application built with Next.js 15.
 
-## What's next? How do I make an app with this?
+## 🚀 Tech Stack
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Framework:** Next.js 15
+- **Language:** TypeScript
+- **Authentication:** Clerk
+- **Database:** Vercel Postgres with Drizzle ORM
+- **Styling:** Tailwind CSS
+- **UI Components:** Radix UI
+- **File Upload:** UploadThing
+- **Monitoring:** Sentry
+- **Analytics:** PostHog
+- **Deployment:** Vercel
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## 🛠️ Development
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### Prerequisites
 
-## Learn More
+- Node.js (Latest LTS version recommended)
+- npm 10.9.2 or later
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Getting Started
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+### Available Scripts
 
-## How do I deploy this?
+- `npm run dev` - Start development server with Turbo
+- `npm run build` - Build the application
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run typecheck` - Run TypeScript type checking
+- `npm run format:write` - Format code with Prettier
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+### Database Management
+
+- `npm run db:generate` - Generate database migrations
+- `npm run db:push` - Push schema changes to database
+- `npm run db:studio` - Open Drizzle Studio
+- `npm run db:migrate` - Run database migrations
+
+## 📁 Project Structure
+
+```
+src/
+├── app/          # Next.js app directory (pages and layouts)
+├── components/   # Reusable React components
+├── lib/          # Library code and configurations
+├── server/       # Server-side code
+├── styles/       # Global styles and Tailwind config
+└── utils/        # Utility functions
+```
+
+## 🔧 Configuration
+
+The project uses several configuration files:
+
+- `next.config.js` - Next.js configuration
+- `tsconfig.json` - TypeScript configuration
+- `drizzle.config.ts` - Database ORM configuration
+- `eslint.config.js` - ESLint configuration
+- `prettier.config.js` - Prettier configuration
+- `postcss.config.js` - PostCSS configuration
+
+## 📝 Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+# Add your environment variables here
+# See src/env.js for required variables
+```
+
+## 🚀 Deployment
+
+This project is configured for deployment on Vercel. The deployment process is automated through GitHub integration.
