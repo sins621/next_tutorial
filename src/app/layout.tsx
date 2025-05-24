@@ -10,6 +10,7 @@ import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import type { ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
+import { PostHogProvider } from "./providers";
 
 export const metadata: Metadata = {
   title: "Next.js Tutorial",
@@ -32,16 +33,18 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className={`${geist.variable}`}>
-        <body className="dark flex min-h-screen flex-col overflow-hidden">
-          <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-          <div className="grid h-full grid-rows-[auto,1fr]">
-            <TopNav />
-            <main className="overflow-y-auto">{children}</main>
-          </div>
-          {modal}
-          <div id="modal-root" />
-          <Toaster />
-        </body>
+        <PostHogProvider>
+          <body className="dark flex min-h-screen flex-col overflow-hidden">
+            <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+            <div className="grid h-full grid-rows-[auto,1fr]">
+              <TopNav />
+              <main className="overflow-y-auto">{children}</main>
+            </div>
+            {modal}
+            <div id="modal-root" />
+            <Toaster />
+          </body>
+        </PostHogProvider>
       </html>
     </ClerkProvider>
   );
